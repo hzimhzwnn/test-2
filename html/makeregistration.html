@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up As Volunteer</title>
+    <style>
+        @font-face {
+            font-family: 'Open Sans';
+            src: url('fonts/OpenSans-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Open Sans';
+            src: url('fonts/OpenSans-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #e1c986; 
+        } 
+ 
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background-color: #894949; 
+            padding: 20px; 
+        } 
+ 
+        .logo img { 
+            height: 100px; 
+        } 
+ 
+        nav ul { 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+            gap: 20px; 
+        } 
+ 
+        nav a { 
+            text-decoration: none; 
+            color: #ffffff; 
+            font-weight: bold; 
+            font-size: 30px;
+        } 
+ 
+        .nav-item { 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+        } 
+ 
+        .nav-item.active { 
+            background-color: #e1c986; 
+            color: white; 
+        } 
+ 
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+        .buttons a {
+            margin: 5px 0;
+            padding: 10px 20px;
+            width: 100px;  /* Set a fixed width */
+            height: 40px;  /* Set a fixed height */
+            color: #894949;
+            background-color: #e1c986;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 40px;  /* Vertically center text */
+        }
+        .form-container {
+            text-align: center;
+            background-color: #e1c986;
+            padding: 50px 20px;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            color: #894949;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            font-size: 40px;
+        }
+
+        .form-container input {
+            display: block;
+            width: 400px;
+            padding: 10px;
+            margin: 10px auto;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-container button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #894949;
+            text-align: center;
+            padding: 20px;
+            color:#ffffff;
+        }
+
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logonew.png" alt="Company Logo">
+        </div>
+        <nav>
+            <ul>
+                <li class="nav-item"><a href="abouts.html" class="nav-link">ABOUT US</a></li>
+                <li class="nav-item"><a href="makeregistration.html" class="nav-link">VOLUNTEER</a></li>
+                <li class="nav-item"><a href="Contact.html" class="nav-link">CONTACT US</a></li>
+                <li class="nav-item"><a href="propose.html" class="nav-link">ACTIVITIES</a></li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <a href="#donate">DONATE</a>
+            <a href="login.html">LOGIN</a>
+        </div>
+    </header>
+
+    <div id="volunteer" class="form-container">
+        <h2>Sign-Up As Volunteer</h2>
+        <form id="volunteer-form">
+            <input type="text" id="volunteer-id" name="volunteer-id" placeholder="Volunteer ID/IC" required>
+            <div class="error" id="id-error"></div>
+            <input type="text" id="volunteer-name" name="volunteer-name" placeholder="Volunteer Name" required>
+            <div class="error" id="name-error"></div>
+            <input type="text" id="volunteer-org" name="volunteer-org" placeholder="Volunteer Organization Name">
+            <div class="error" id="org-error"></div>
+            <input type="text" id="phone-number" name="phone-number" placeholder="Phone Number">
+            <div class="error" id="phone-error"></div>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <div class="error" id="email-error"></div>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <div class="error" id="username-error"></div>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <div class="error" id="password-error"></div>
+            <button type="submit">Sign Up</button>
+
+            <p>Existing user? Click Login</p>
+            <button type="submit">Login</button>
+            
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2024 Love Home Charity. All rights reserved.<br>
+        Contact us: <a href="mailto:info@lovehomecharity.org">info@lovehomecharity.org</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(function(link) {
+                        link.parentElement.classList.remove('active');
+                    });
+                    this.parentElement.classList.add('active');
+                });
+            });
+
+
+            // Form validation
+            document.getElementById('volunteer-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // Clear previous errors
+                document.querySelectorAll('.error').forEach(function(error) {
+                    error.textContent = '';
+                });
+
+                var isValid = true;
+
+                // Volunteer ID/IC validation
+                var volunteerId = document.getElementById('volunteer-id').value;
+                if (!/^\d{12}$/.test(volunteerId)) {
+                    document.getElementById('id-error').textContent = 'INVALID ID';
+                    isValid = false;
+                }
+
+                // Volunteer Name validation
+                var volunteerName = document.getElementById('volunteer-name').value;
+                if (!/^[a-zA-Z\s]+$/.test(volunteerName)) {
+                    document.getElementById('name-error').textContent = 'Please enter your real name';
+                    isValid = false;
+                }
+
+                // Volunteer Organization Name validation
+                var volunteerOrg = document.getElementById('volunteer-org').value;
+                if (volunteerOrg && !/^[a-zA-Z\s]+$/.test(volunteerOrg)) {
+                    document.getElementById('org-error').textContent = 'if non, please enter not applicable';
+                    isValid = false;
+                }
+
+                // Phone Number validation
+                var phoneNumber = document.getElementById('phone-number').value;
+                if (phoneNumber && !/^\d+$/.test(phoneNumber)) {
+                    document.getElementById('phone-error').textContent = 'Numbers only';
+                    isValid = false;
+                }
+
+                // Email validation
+                var email = document.getElementById('email').value;
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    document.getElementById('email-error').textContent = 'Invalid email';
+                    isValid = false;
+                }
+
+                // Username validation
+                var username = document.getElementById('username').value;
+                if (!/^[a-zA-Z0-9]{1,20}$/.test(username)) {
+                    document.getElementById('username-error').textContent = 'Invalid username';
+                    isValid = false;
+                }
+
+                // Password validation
+                var password = document.getElementById('password').value;
+                var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
+                if (!passwordPattern.test(password)) {
+                    document.getElementById('password-error').textContent = 'Password is too weak';
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // Submit form data to the server or perform further actions
+                    alert('Form submitted successfully!');
+                }
+            });
+        });
+    </script>
+
+    <script>
+    // Function to add 'active' class to the current page link
+    function setActiveNavItem() {
+        const navItems = document.querySelectorAll('.nav-item');
+        const currentPage = window.location.pathname.split('/').pop();
+        navItems.forEach(item => {
+            const link = item.querySelector('a');
+            if (link.getAttribute('href') === currentPage) {
+                item.classList.add('active');
+            }
+        });
+    }
+
+    // Call the function when the page loads
+    window.onload = setActiveNavItem;
+    </script>
+</body>
+</html>

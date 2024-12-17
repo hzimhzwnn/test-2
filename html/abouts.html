@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT US</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #894949;
+            padding: 20px;
+        }
+
+        .logo img {
+            height: 100px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 30px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .nav-item.active a {
+            background-color: #e1c986;
+            color: white;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+        .buttons a {
+            margin: 5px 0;
+            padding: 10px 20px;
+            width: 100px;  /* Set a fixed width */
+            height: 40px;  /* Set a fixed height */
+            color: #894949;
+            background-color: #e1c986;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 40px;  /* Vertically center text */
+        }
+
+        .company-background {
+            text-align: center;
+            background-color: #e1c986;
+            padding: 50px 10px;
+        }
+
+        .company-background h1 {
+            color: #894949;
+            margin-bottom: 20px;
+            margin-top: 0px;
+            margin-left: auto;
+            font-size: 50px;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Ensure boxes wrap properly on smaller screens */
+        }
+
+        .box-side {
+            flex: 2; /* Ensure this side takes available space */
+        }
+
+        .box-side-right {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Add some space between the boxes */
+            flex: 1; /* Make this side take twice the space of the chart side */
+        }
+
+        .box {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            max-width: 100%;
+        }
+
+        .box.wide {
+            max-width: 300;
+        }
+
+        .box h2 {
+            color: #894949;
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            color: #894949;
+            font-size: 16px;
+        }
+
+        .org-chart-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        footer {
+            background-color: #894949;
+            text-align: center;
+            padding: 20px;
+            color:#ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="homepage.html">
+                <img src="images/logonew.png" alt="Company Logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li class="nav-item"><a href="abouts.html">ABOUT US</a></li>
+                <li class="nav-item"><a href="makeregistration.html">VOLUNTEER</a></li>
+                <li class="nav-item"><a href="Contact.html">CONTACT US</a></li>
+                <li class="nav-item"><a href="propose.html">ACTIVITIES</a></li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <a href="#donate">DONATE</a>
+            <a href="login.html">LOGIN</a>
+        </div>
+    </header>
+    <div class="company-background">
+        <h1>COMPANY BACKGROUND</h1>
+        <div class="box-container">
+            <div class="box-side">
+                <div class="box wide">
+                    <h2>ORGANIZATIONAL CHART</h2>
+                    <img src="images/chart.png" class="org-chart-img" alt="Organizational Chart">
+                </div>
+            </div>
+            <div class="box-side box-side-right">
+                <div class="box">
+                    <h2>VISION</h2>
+                    <p>Rooted in the belief that love and kindness can bring hope and transform lives.</p>
+                </div>
+                <div class="box">
+                    <h2>MISSION</h2>
+                    <p>To advocate love and kindness, offering a warm and nurturing environment where individuals with disabilities can thrive.</p>
+                </div>
+                <div class="box">
+                    <h2>OBJECTIVE</h2>
+                    <p>Provide comprehensive support and help to those in need, especially patients with disabilities.</p>
+                </div>
+                <div class="box">
+                    <h2>INFO</h2>
+                    <p>CURRENT PATIENTS: 33 PERSONS</p>
+                    <p>VOLUNTEERS: 7 PERSONS</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Love Home Charity. All rights reserved.<br>
+        Contact us: <a href="mailto:info@lovehomecharity.org">info@lovehomecharity.org</a></p>
+    </footer>
+
+    <script>
+        // Function to add 'active' class to the current page link
+        function setActiveNavItem() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const currentPage = window.location.pathname.split('/').pop();
+            navItems.forEach(item => {
+                const link = item.querySelector('a');
+                if (link.getAttribute('href') === currentPage) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // Call the function when the page loads
+        window.onload = setActiveNavItem;
+    </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>PATIENT REGISTRATION</title> 
+    <style> 
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #ffffff; 
+        } 
+ 
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background-color: #894949; 
+            padding: 20px; 
+        } 
+ 
+        .logo img { 
+            height: 100px; 
+        } 
+ 
+        nav ul { 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+            gap: 20px; 
+        } 
+ 
+        nav a { 
+            text-decoration: none; 
+            color: #ffffff; 
+            font-weight: bold; 
+            font-size: 20px;
+        } 
+ 
+        .nav-item { 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+        } 
+ 
+        .nav-item.active { 
+            background-color: #e1c986; 
+            color: white; 
+        } 
+ 
+        .donate a { 
+            background-color: white; 
+            padding: 10px 20px; 
+            text-decoration: none; 
+            color: #1a237e; 
+            font-weight: bold; 
+            font-size: 30px; 
+            border-radius: 5px; 
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        .form-container { 
+            text-align: center; 
+            background-color: #e1c986; 
+            padding: 50px 20px; 
+            margin: 20px; 
+            border-radius: 15px; 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        .form-container h2 { 
+            color: white; 
+            margin-bottom: 15px; 
+            margin-top: 15px; 
+            font-size: 40px; 
+        } 
+ 
+        .form-container input { 
+            display: block; 
+            width: 400px; 
+            padding: 10px; 
+            margin: 10px auto; 
+            border-radius: 5px; 
+            border: 1px solid #ccc; 
+        } 
+ 
+        .form-container button { 
+            padding: 10px 20px; 
+            background-color: #333; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        } 
+ 
+        .form-container button:hover { 
+            background-color: #555; 
+        } 
+ 
+        footer {
+            background-color: #894949;
+            text-align: center;
+            padding: 20px;
+            color:#ffffff;
+        }
+ 
+        .error { 
+            color: red; 
+            font-size: 14px; 
+        } 
+        .buttons input[type="reset"] {
+            background-color: #f44336;
+            color: white;
+        }
+    </style> 
+</head> 
+<body> 
+    <header> 
+        <div class="logo"> 
+            <a href="homepage.html">
+                <img src="images/logonew.png" alt="Company Logo">
+            </a>
+        </div> 
+        <nav> 
+            <ul> 
+                
+                <li class="nav-item"><a href="#patientlist" class="nav-link">PATIENT'S LIST</a></li> 
+                <li class="nav-item"><a href="#registerpatient" class="nav-link">REGISTER PATIENT</a></li> 
+                <li class="nav-item"><a href="#appointmentlist" class="nav-link">APPOINTMENT LIST</a></li>
+                
+            </ul> 
+        </nav> 
+        <div class="donate"> 
+            <a href="#">LOG-OUT</a>
+        </div> 
+    </header> 
+ 
+    <div id="registerpatient" class="form-container"> 
+        <h2>PATIENT REGISTRATION</h2> 
+        <form id="patient-form"> 
+            <input type="text" id="patient-ic" name="patient-ic" placeholder="Patient IC" required> 
+            <div class="error" id="ic-error"></div> 
+            <input type="text" id="patient-id" name="patient-id" placeholder="Patient ID" required>
+            <div class="error" id="id-error"></div>
+            <input type="text" id="patient-name" name="patient-name" placeholder="Patient Name" required> 
+            <div class="error" id="name-error"></div>
+<input type="text" id="type-illness" name="type-illness" placeholder="Type of Illness"> 
+            <div class="error" id="org-error"></div> 
+            <input type="date" id="birth-date" name="birth-date" placeholder="Patient Birth Date" required>
+            <input type="text" id="patient-age" name="patient-age" placeholder="Patient Age"> 
+            <div class="error" id="age-error"></div> 
+            <input type="text" id="reason" name="reason" placeholder="Admission Reason" required> 
+            <div class="error" id="reason-error"></div> 
+            <select>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <div class="error" id="gender-error"></div>
+            <div class="buttons">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Clear Form">
+
+            
+        </form> 
+    </div> 
+ 
+    <footer> 
+        <p>© 2024 Love Home Charity. All rights reserved.<br> 
+        Contact us: <a href="mailto:info@lovehomecharity.org">info@lovehomecharity.org</a></p> 
+    </footer> 
+ 
+    <script> 
+        document.addEventListener('DOMContentLoaded', function() { 
+            var navLinks = document.querySelectorAll('.nav-link'); 
+            navLinks.forEach(function(link) { 
+                link.addEventListener('click', function() { 
+                    navLinks.forEach(function(link) { 
+                        link.parentElement.classList.remove('active'); 
+                    }); 
+                    this.parentElement.classList.add('active'); 
+                }); 
+            }); 
+ 
+            document.getElementById('patient-form').addEventListener('submit', function(event) { 
+                event.preventDefault(); 
+ 
+              
+                document.querySelectorAll('.error').forEach(function(error) { 
+                    error.textContent = ''; 
+                }); 
+ 
+                var isValid = true; 
+
+                var patientID = document.getElementById('patient-id').value; 
+                if (!/^\d{12}$/.test(patientId)) { 
+                    document.getElementById('id-error').textContent = 'INVALID ID'; 
+                    isValid = false; 
+ 
+                
+                var patientIcNumber = document.getElementById('patient-ic').value; 
+                if (!/^\d{12}$/.test(patientIc)) { 
+                    document.getElementById('ic-error').textContent = 'INVALID IC'; 
+                    isValid = false; 
+                } 
+ 
+                var patientName = document.getElementById('patient-name').value; 
+                if (!/^[a-zA-Z\s]+$/.test(patientName)) { 
+                    document.getElementById('name-error').textContent = 'Please enter your real name'; 
+                    isValid = false; 
+                } 
+ 
+              
+                var patientillness = document.getElementById('type-illness').value; 
+                if (patientillness && !/^[a-zA-Z\s]+$/.test(patientillness)) { 
+                    document.getElementById('org-error').textContent = 'Invalid Ilness'; 
+                    isValid = false; 
+                } 
+ 
+                var patientBirthDate = document.getElementById('birth-date').value; 
+                if (patientBirthDate && !/^\d+$/.test(patientBirthDate)) { 
+                    document.getElementById('date-error').textContent = 'Numbers only'; 
+                    isValid = false; 
+                } 
+ 
+                
+                var patientAge = document.getElementById('patient-age').value; 
+                if (!/^[a-zA-Z\s]+$/.test(patientAge)) { 
+                    document.getElementById('age-error').textContent = 'Please enter your real age'; 
+                    isValid = false; 
+                } 
+ 
+               
+                var patientReasonAdmission = document.getElementById('reason').value; 
+                if (!/^[a-zA-Z0-9]{1,20}$/.test(reason)) {
+document.getElementById('reason-error').textContent = 'Invalid reason'; 
+                    isValid = false; 
+                } 
+ 
+            
+ 
+                if (isValid) { 
+            
+                    alert('Form submitted successfully!'); 
+                } 
+            }); 
+        }); 
+    </script> 
+</body> 
+</html>

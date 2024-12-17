@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <style>
+        @font-face {
+            font-family: 'Open Sans';
+            src: url('fonts/OpenSans-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Open Sans';
+            src: url('fonts/OpenSans-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #e1c986; 
+        } 
+ 
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background-color: #894949; 
+            padding: 20px; 
+        } 
+ 
+        .logo img { 
+            height: 100px; 
+        } 
+ 
+        nav ul { 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+            gap: 20px; 
+        } 
+ 
+        nav a { 
+            text-decoration: none; 
+            color: #ffffff; 
+            font-weight: bold; 
+            font-size: 30px;
+        } 
+ 
+        .nav-item { 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+        } 
+ 
+        .nav-item.active { 
+            background-color: #e1c986; 
+            color: white; 
+        } 
+ 
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+        .buttons a {
+            margin: 5px 0;
+            padding: 10px 20px;
+            width: 100px;  /* Set a fixed width */
+            height: 40px;  /* Set a fixed height */
+            color: #894949;
+            background-color: #e1c986;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 40px;  /* Vertically center text */
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #555; /* Adjust to your design */
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #555;; /* Adjust to your design */
+        }
+        
+        .form-container {
+            text-align: center;
+            background-color: #e1c986;
+            padding: 50px 20px;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            color: #894949;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            font-size: 40px;
+        }
+
+        .form-container input {
+            display: block;
+            width: 400px;
+            padding: 10px;
+            margin: 10px auto;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-container button {
+            padding: 10px 20px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #894949;
+            text-align: center;
+            padding: 20px;
+            color:#ffffff;
+        }
+
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="homepage.html">
+                <img src="images/logonew.png" alt="Company Logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li class="nav-item"><a href="abouts.html" class="nav-link">ABOUT US</a></li>
+                <li class="nav-item"><a href="makeregistration.html" class="nav-link">VOLUNTEER</a></li>
+                <li class="nav-item"><a href="Contact.html" class="nav-link">CONTACT US</a></li>
+                <li class="nav-item"><a href="propose.html" class="nav-link">ACTIVITIES</a></li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <a href="#donate">DONATE</a>
+            <a href="login.html">LOGIN</a>
+        </div>
+    </header>
+
+    <div id="login" class="form-container">
+        <h2>LOGIN</h2>
+        <form id="login-form">
+            <input type="text" id="volunteer-id" name="volunteer-id" placeholder="Volunteer ID/IC" required>
+            <div class="error" id="id-error"></div>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <div class="error" id="password-error"></div>
+            <button type="submit">Login</button>
+
+            <p>Admin? please click Administrator</p>
+            <a href="adminlog.html" class="button">Administrator</a>
+            
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2024 Love Home Charity. All rights reserved.<br>
+        Contact us: <a href="mailto:info@lovehomecharity.org">info@lovehomecharity.org</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(function(link) {
+                        link.parentElement.classList.remove('active');
+                    });
+                    this.parentElement.classList.add('active');
+                });
+            });
+
+
+            // Form validation
+            document.getElementById('login-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // Clear previous errors
+                document.querySelectorAll('.error').forEach(function(error) {
+                    error.textContent = '';
+                });
+
+                var isValid = true;
+
+                // Volunteer ID/IC validation
+                var volunteerId = document.getElementById('volunteer-id').value;
+                if (!/^\d{12}$/.test(volunteerId)) {
+                    document.getElementById('id-error').textContent = 'INVALID ID';
+                    isValid = false;
+                }
+
+                // Password validation
+                var password = document.getElementById('password').value;
+                var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
+                if (!passwordPattern.test(password)) {
+                    document.getElementById('password-error').textContent = 'Wrong Password';
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // Submit form data to the server or perform further actions
+                    alert('Succesfully Login');
+                }
+            });
+        });
+    </script>
+
+    <script>
+    // Function to add 'active' class to the current page link
+    function setActiveNavItem() {
+        const navItems = document.querySelectorAll('.nav-item');
+        const currentPage = window.location.pathname.split('/').pop();
+        navItems.forEach(item => {
+            const link = item.querySelector('a');
+            if (link.getAttribute('href') === currentPage) {
+                item.classList.add('active');
+            }
+        });
+    }
+
+    // Call the function when the page loads
+    window.onload = setActiveNavItem;
+    </script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELCOME TO LOVE HOME CHARITY</title>
+    <style>
+        @font-face {
+            font-family: 'Open Sans';
+            src: url('fonts/OpenSans-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Open Sans';
+            src: url('fonts/OpenSans-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #e1c986; 
+        } 
+ 
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background-color: #894949; 
+            padding: 20px; 
+        } 
+ 
+        .logo img { 
+            height: 100px; 
+        } 
+ 
+        nav ul { 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+            gap: 20px; 
+        } 
+ 
+        nav a { 
+            text-decoration: none; 
+            color: #ffffff; 
+            font-weight: bold; 
+            font-size: 30px;
+        } 
+ 
+        .nav-item { 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+        } 
+ 
+        .nav-item.active { 
+            background-color: #e1c986; 
+            color: white; 
+        } 
+ 
+        .donate a { 
+            background-color: white; 
+            padding: 10px 20px; 
+            text-decoration: none; 
+            color: #1a237e; 
+            font-weight: bold; 
+            font-size: 30px; 
+            border-radius: 5px; 
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+        .buttons a {
+            margin: 5px 0;
+            padding: 10px 20px;
+            width: 100px;  /* Set a fixed width */
+            height: 40px;  /* Set a fixed height */
+            color: #894949;
+            background-color: #e1c986;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 40px;  /* Vertically center text */
+        }
+
+        .introduction {
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .introduction h1 {
+            font-size: 48px;
+            margin: 0;
+            color: #894949;
+        }
+        .introduction, .description {
+            margin: 20px auto 40px;
+            padding: 20px;
+            border: 2px solid rgb(255, 255, 255);
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+            box-sizing: border-box;
+            display: inline-block;
+            color: #894949;
+        }
+        .activities {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .activity {
+            background-color: #e9e9e9;
+            border-radius: 10px;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .activity img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        footer {
+            background-color: #894949;
+            text-align: center;
+            padding: 20px;
+            color:#ffffff;
+        }
+
+        .custom-font {
+            font-family: "Playfair Display", serif;
+            font-optical-sizing: auto;
+            font-weight:bold;
+            font-style: normal;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="homepage.html">
+                <img src="images/logonew.png" alt="Company Logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li class="nav-item"><a href="abouts.html" class="nav-link">ABOUT US</a></li>
+                <li class="nav-item"><a href="makeregistration.html" class="nav-link">VOLUNTEER</a></li>
+                <li class="nav-item"><a href="Contact.html" class="nav-link">CONTACT US</a></li>
+                <li class="nav-item"><a href="propose.html" class="nav-link">ACTIVITIES</a></li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <a href="#donate">DONATE</a>
+            <a href="login.html">LOGIN</a>
+        </div>
+    </header>
+
+
+    <section class="introduction">
+        <h1 class="custom-font">WELCOME TO LOVE HOME CHARITY</h1> 
+        <div class="description">The Pertubuhan Kebajikan Kanak-Kanak Yatim dan Cacat Perlindungan Selangor, 
+            also known as Love Home Charity is a shelter for physically impaired people, 
+            mentally disabled children and vulnerable people who need support. 
+            This center was established on August 30, 2018, to provide shelter and care for people with disabilities, 
+            such as Down syndrome, mental illness and autism regardless of race and religion.</div>
+            <div class="activities">
+                <div class="activity"><img src="images/1.jpg" alt="Activity 1"></div>
+                <div class="activity"><img src="images/charity.jpg" alt="Activity 4"></div>
+                <div class="activity"><img src="images/charity2.jpg" alt="Activity 3"></div>
+                <div class="activity"><img src="images/5.jpg" alt="Activity 5"></div>
+                <div class="activity"><img src="images/charity3.jpg" alt="Activity 5"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Love Home Charity. All rights reserved.<br>
+        Contact us: <a href="mailto:info@lovehomecharity.org">info@lovehomecharity.org</a></p>
+    </footer>
+</body>
+</html>
